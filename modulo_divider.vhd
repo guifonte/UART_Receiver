@@ -1,7 +1,8 @@
 -------------------------------------------
 -- Block code:  modulo_divider.vhd
 -- History: 	14.Nov.2012 - 1st version (dqtm)
---                 <date> - <changes>  (<author>)
+--              15.Mar.2018 - change duty cycle from 50% to 1/80. (guifonte)
+--               <date> - <changes>  (<author>)
 -- Function: modulo divider with generic width. Output MSB with 1/80 duty cycle.
 --		Can be used for clock-divider when no exact ratio required.
 -------------------------------------------
