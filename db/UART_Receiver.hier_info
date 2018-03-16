@@ -1,0 +1,20 @@
+|tick_generator
+clk => count[0].CLK
+clk => count[1].CLK
+clk => count[2].CLK
+clk => count[3].CLK
+clk => count[4].CLK
+reset_n => count[0].ACLR
+reset_n => count[1].PRESET
+reset_n => count[2].ACLR
+reset_n => count[3].PRESET
+reset_n => count[4].ACLR
+ativo => next_count[4].OUTPUTSELECT
+ativo => next_count[3].OUTPUTSELECT
+ativo => next_count[2].OUTPUTSELECT
+ativo => next_count[1].OUTPUTSELECT
+ativo => next_count[0].OUTPUTSELECT
+ativo => tick_o.OUTPUTSELECT
+tick_o <= tick_o.DB_MAX_OUTPUT_PORT_TYPE
+
+

@@ -42,7 +42,7 @@ BEGIN
   --------------------------------------------------
   -- PROCESS FOR COMBINATORIAL LOGIC
   --------------------------------------------------
-  comb_logic: PROCESS(ativo)
+  comb_logic: PROCESS(ativo,count)
   BEGIN	
 
 	-- check if the down counter is active
@@ -56,7 +56,6 @@ BEGIN
 			ELSE
 				tick_o <= '0';
 			END IF;
-		END IF;
 	ELSE
 		next_count <= to_unsigned(10,width);
 		tick_o <= '0';

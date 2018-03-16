@@ -30,7 +30,7 @@ BEGIN
   --------------------------------------------------
   -- PROCESS FOR COMBINATIONAL LOGIC
   --------------------------------------------------
-  shift_comb: PROCESS(ALL)
+  shift_comb: PROCESS(shiftreg, ser_i, load_i)
   BEGIN	
   --loading 1 bit (serial)
 	IF (load_i = '1') THEN			  -- load serial data (startbit 0)
