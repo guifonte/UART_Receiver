@@ -13,7 +13,7 @@ ENTITY fsm IS
 		clk,reset : 	   	IN std_logic;
 		tick, fall :        IN std_logic;
 		tick_output :       OUT std_logic
-		tick_set_n:			OUT std_logic
+		tick_activator:			OUT std_logic
 	);
 END fsm;
 
@@ -38,6 +38,7 @@ BEGIN
   	-- Default Statement
   	s_nextstate <= s_state;
     next_count <= count;
+    tick_activator <= '0';
   
   	CASE s_state IS
 
@@ -45,27 +46,24 @@ BEGIN
         -- to begin a message 
         --untill it begins, count is 11 (if a previous message has been sent)
         --or clock is 0 if no message has been sent at all
-  			IF (fall) AND ((count = 0) OR (count >10)) THEN
-			tick_output <= '1';
-			s_nextstate <= begining
-			count <= 1;
-			tick_set_n <= '0';
+  			IF (fall) AND ((count = 0) OR (count >= 10)) THEN
+    			s_nextstate <= begining
+    			next_count <= 1;
+    			tick_s <= '0';
         --if the message is being sent
   			ELSIF (tick = '1') AND (count <= 10) THEN
             next_count <= count + 1;
-            tick_output <= '0';
-			tick_set_n <= '0';
+            tick_activator <= '1';
 		--if the message is already sent
 			ELSIF (tick = '1') AND (count > 10) THEN 
-			tick_set_n <= '1';
-  			END IF;
+          tick_activator <= '0';
+			END IF;
 
       --to send the ticker the bit to switch clock counter from 10 counts to 20 
   		WHEN begining =>
         IF  (tick = '1') THEN
-			s_nextstate <= not_begining
-			tick_output <= '0';
-			tick_set_n <= '0';
+    			s_nextstate <= not_begining
+    			tick_activator <= '1';
         END IF;
 
   		WHEN OTHERS => 
