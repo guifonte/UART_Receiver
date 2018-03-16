@@ -39,10 +39,10 @@ BEGIN
   comb_logic: PROCESS(count)
   BEGIN	
 	IF next_count = 80 THEN
-	clk_div = '1';
-	count = 0;
+	clk_div <= '1';
+	count <= to_unsigned(0,width);
 	ElSE
-	clk_div = '0';
+	clk_div <= '0';
 	-- increment	
 	next_count <= count + 1 ;
 	END IF;
