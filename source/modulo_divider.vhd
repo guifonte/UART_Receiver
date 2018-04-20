@@ -38,12 +38,9 @@ BEGIN
   --------------------------------------------------
   comb_logic: PROCESS(count)
   BEGIN	
-	IF next_count = 80 THEN
-	clk_div <= '1';
-	count <= to_unsigned(0,width);
-	ElSE
-	clk_div <= '0';
-	-- increment	
+	IF count = 80 THEN
+	next_count <= to_unsigned(0,width);
+	ElSE	
 	next_count <= count + 1 ;
 	END IF;
   END PROCESS comb_logic;   
@@ -60,6 +57,16 @@ BEGIN
     END IF;
   END PROCESS flip_flops;		
    
+	
+  final_logic: PROCESS(count)
+  BEGIN	
+	IF count = 80 THEN
+	clk_div <= '1';
+	ElSE
+	clk_div <= '0';
+	END IF;
+  END PROCESS final_logic;
+	
  -- End Architecture 
 ------------------------------------------- 
 END rtl;

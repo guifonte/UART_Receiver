@@ -1,7 +1,7 @@
 -------------------------------------------
 -- Block code:  tick_generator.vhd
 -- History: 	15.Nov.2018 - 1st version (guifonte)
---				22.Mar.2018 - change to Moore State Machine (guifonte)
+--					22.Mar.2018 - change to Moore State Machine (guifonte)
 --                 <date> - <changes>  (<author>)
 -- Function: tick generator with an active input and two working modes:
 --					send a tick every 10 or 20 ticks from the clock.
@@ -22,8 +22,8 @@ USE ieee.numeric_std.all;
 ENTITY tick_generator IS
 GENERIC (width : positive := 5);
   PORT( clk,reset_n					: IN    	std_logic; 		
-		ativo						: IN		std_logic; --continuos signal to set the working of the down counter
-    	tick_o     					: OUT   	std_logic
+		ativo								: IN		std_logic; --continuos signal to set the working of the down counter
+    	tick_o     						: OUT   	std_logic
     	);
 END tick_generator;
 
@@ -65,7 +65,7 @@ BEGIN
   --------------------------------------------------
   flip_flops : PROCESS(clk, reset_n)
   BEGIN	
-  	IF reset_n = '0' THEN
+	IF (reset_n = '0') THEN
 		count <= to_unsigned(10,width); -- convert integer value 10 to unsigned with 4bits
     ELSIF rising_edge(clk) THEN
 		count <= next_count ;
@@ -75,11 +75,14 @@ BEGIN
   -------------------------------------------
   -- Concurrent Assignments  
   -------------------------------------------  
+  final_logic : PROCESS(count)
+  BEGIN
 	IF (count = 0) THEN
 		tick_o <= '1';
 	ELSE
 		tick_o <= '0';
 	END IF;
+  END PROCESS final_logic;	
   -- End Architecture 
 ------------------------------------------- 
 END rtl;
