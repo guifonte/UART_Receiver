@@ -60,7 +60,7 @@ BEGIN
 	
   final_logic: PROCESS(count)
   BEGIN	
-	IF count = 80 THEN
+	IF (count >40) THEN
 	clk_div <= '1';
 	ElSE
 	clk_div <= '0';
