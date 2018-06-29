@@ -32,11 +32,10 @@ BEGIN
   --------------------------------------------------
   shift_comb: PROCESS(shiftreg, ser_i, activator)
   BEGIN	
+  next_shiftreg <= shiftreg;
   --loading 1 bit (serial)
 	IF (activator = '1') THEN			  -- load serial data (startbit 0)
-		next_shiftreg <= shiftreg(9 downto 1) & ser_i; -- LSB='0' is the start_bit
-	ELSE
-		next_shiftreg <= (others=>'0');
+		next_shiftreg <= ser_i & shiftreg(9 downto 1 ); -- LSB='0' is the start_bit
   	END IF;
 	
   END PROCESS shift_comb;   
@@ -59,7 +58,7 @@ BEGIN
   -- take LSB of shiftreg as serial output
   led_comb : PROCESS(shiftreg)
   BEGIN
-	IF (shiftreg(9) = '1' AND shiftreg(0) = '1') THEN
+	IF (shiftreg(9) = '1' AND shiftreg(0) = '0') THEN
 		par_bit0_o <= shiftreg(4 downto 1);
 		par_bit1_o <= shiftreg(8 downto 5);
 		led_o <= '0';

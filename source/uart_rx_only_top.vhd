@@ -114,9 +114,9 @@ ARCHITECTURE struct OF uart_rx_only_top IS
 					
 		inst_rx_register_s2p : rx_register_s2p
 		PORT MAP( 
-					clk     		=>		tick_top,
+					clk     		=>		mod_clk,
 					reset_n			=>		KEY(0),		
-					activator		=>		activator_top,
+					activator		=>		tick_top,
 					par_bit0_o		=>		rx2hex1,
 					par_bit1_o		=>		rx2hex2,
 					ser_i			=>		sync2rx,	
