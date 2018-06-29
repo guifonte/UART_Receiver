@@ -40,8 +40,15 @@ add wave -noupdate -expand -group {Tick_Gen
 } -color {Orange Red} -itemcolor {Orange Red} /testbench_uart_rx_only_top/DUT/inst_tick_generator/half
 add wave -noupdate -expand -group {Tick_Gen
 } -color {Orange Red} -itemcolor {Orange Red} /testbench_uart_rx_only_top/DUT/inst_tick_generator/tick_o
+add wave -noupdate -expand -group S2P -color White -itemcolor White /testbench_uart_rx_only_top/DUT/inst_rx_register_s2p/activator
+add wave -noupdate -expand -group S2P -color White -itemcolor White /testbench_uart_rx_only_top/DUT/inst_rx_register_s2p/par_bit0_o
+add wave -noupdate -expand -group S2P -color White -itemcolor White /testbench_uart_rx_only_top/DUT/inst_rx_register_s2p/par_bit1_o
+add wave -noupdate -expand -group S2P -color White -itemcolor White /testbench_uart_rx_only_top/DUT/inst_rx_register_s2p/ser_i
+add wave -noupdate -expand -group S2P -color White -itemcolor White /testbench_uart_rx_only_top/DUT/inst_rx_register_s2p/led_o
+add wave -noupdate -expand -group S2P -color White -itemcolor White /testbench_uart_rx_only_top/DUT/inst_rx_register_s2p/shiftreg
+add wave -noupdate -expand -group S2P /testbench_uart_rx_only_top/DUT/inst_rx_register_s2p/next_shiftreg
 TreeUpdate [SetDefaultTree]
-WaveRestoreCursors {{Cursor 1} {414904 ns} 0}
+WaveRestoreCursors {{Cursor 1} {416520 ns} 0}
 quietly wave cursor active 1
 configure wave -namecolwidth 150
 configure wave -valuecolwidth 100

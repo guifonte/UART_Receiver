@@ -6,9 +6,50 @@ add wave -noupdate /testbench_uart_rx_only_top/tb_reset_n
 add wave -noupdate /testbench_uart_rx_only_top/tb_serdata
 add wave -noupdate /testbench_uart_rx_only_top/DUT/inst_modulo_divider/clk_div
 add wave -noupdate /testbench_uart_rx_only_top/DUT/inst_tick_generator/tick_o
+add wave -noupdate -expand -group Sync_Edge_Detect -color {Sky Blue} -itemcolor {Sky Blue} /testbench_uart_rx_only_top/DUT/inst_sync_n_edgeDetector/data_in
+add wave -noupdate -expand -group Sync_Edge_Detect -color {Sky Blue} -itemcolor {Sky Blue} /testbench_uart_rx_only_top/DUT/inst_sync_n_edgeDetector/data_out
+add wave -noupdate -expand -group Sync_Edge_Detect -color {Sky Blue} -itemcolor {Sky Blue} /testbench_uart_rx_only_top/DUT/inst_sync_n_edgeDetector/rise
+add wave -noupdate -expand -group Sync_Edge_Detect -color {Sky Blue} -itemcolor {Sky Blue} /testbench_uart_rx_only_top/DUT/inst_sync_n_edgeDetector/fall
+add wave -noupdate -expand -group {FSM
+} -color Pink -itemcolor Pink /testbench_uart_rx_only_top/DUT/inst_fsm/tick
+add wave -noupdate -expand -group {FSM
+} -color Pink -itemcolor Pink /testbench_uart_rx_only_top/DUT/inst_fsm/fall
+add wave -noupdate -expand -group {FSM
+} -color Pink -itemcolor Pink /testbench_uart_rx_only_top/DUT/inst_fsm/tick_halfsize
+add wave -noupdate -expand -group {FSM
+} -color Pink -itemcolor Pink /testbench_uart_rx_only_top/DUT/inst_fsm/tick_activator
+add wave -noupdate -expand -group {FSM
+} -color Pink -itemcolor Pink /testbench_uart_rx_only_top/DUT/inst_fsm/s_state
+add wave -noupdate -expand -group {FSM
+} -color Pink -itemcolor Pink /testbench_uart_rx_only_top/DUT/inst_fsm/s_nextstate
+add wave -noupdate -expand -group {FSM
+} -color Pink -itemcolor Pink /testbench_uart_rx_only_top/DUT/inst_fsm/clk
+add wave -noupdate -expand -group {FSM
+} -color Pink -itemcolor Pink /testbench_uart_rx_only_top/DUT/inst_fsm/reset_n
+add wave -noupdate -expand -group {FSM
+} -color Pink -itemcolor Pink /testbench_uart_rx_only_top/DUT/inst_fsm/count
+add wave -noupdate -expand -group {FSM
+} -color Pink -itemcolor Pink /testbench_uart_rx_only_top/DUT/inst_fsm/next_count
+add wave -noupdate -expand -group {Tick_Gen
+} -color {Orange Red} -itemcolor {Orange Red} /testbench_uart_rx_only_top/DUT/inst_tick_generator/clk
+add wave -noupdate -expand -group {Tick_Gen
+} -color {Orange Red} -itemcolor {Orange Red} /testbench_uart_rx_only_top/DUT/inst_tick_generator/reset_n
+add wave -noupdate -expand -group {Tick_Gen
+} -color {Orange Red} -itemcolor {Orange Red} /testbench_uart_rx_only_top/DUT/inst_tick_generator/ativo
+add wave -noupdate -expand -group {Tick_Gen
+} -color {Orange Red} -itemcolor {Orange Red} /testbench_uart_rx_only_top/DUT/inst_tick_generator/half
+add wave -noupdate -expand -group {Tick_Gen
+} -color {Orange Red} -itemcolor {Orange Red} /testbench_uart_rx_only_top/DUT/inst_tick_generator/tick_o
+add wave -noupdate -expand -group S2P -color White -itemcolor White /testbench_uart_rx_only_top/DUT/inst_rx_register_s2p/activator
+add wave -noupdate -expand -group S2P -color White -itemcolor White /testbench_uart_rx_only_top/DUT/inst_rx_register_s2p/par_bit0_o
+add wave -noupdate -expand -group S2P -color White -itemcolor White /testbench_uart_rx_only_top/DUT/inst_rx_register_s2p/par_bit1_o
+add wave -noupdate -expand -group S2P -color White -itemcolor White /testbench_uart_rx_only_top/DUT/inst_rx_register_s2p/ser_i
+add wave -noupdate -expand -group S2P -color White -itemcolor White /testbench_uart_rx_only_top/DUT/inst_rx_register_s2p/led_o
+add wave -noupdate -expand -group S2P -color White -itemcolor White /testbench_uart_rx_only_top/DUT/inst_rx_register_s2p/shiftreg
+add wave -noupdate -expand -group S2P /testbench_uart_rx_only_top/DUT/inst_rx_register_s2p/next_shiftreg
 TreeUpdate [SetDefaultTree]
-WaveRestoreCursors {{Cursor 1} {0 ns} 0}
-quietly wave cursor active 0
+WaveRestoreCursors {{Cursor 1} {416520 ns} 0}
+quietly wave cursor active 1
 configure wave -namecolwidth 150
 configure wave -valuecolwidth 100
 configure wave -justifyvalue left
@@ -23,4 +64,4 @@ configure wave -griddelta 40
 configure wave -timeline 0
 configure wave -timelineunits ns
 update
-WaveRestoreZoom {0 ns} {443730 ns}
+WaveRestoreZoom {0 ns} {862704 ns}
